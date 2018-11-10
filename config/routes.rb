@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/', to: "home#index"
   get 'home/index'
 
-
+  get '/dashboard', to: "dashboard#index"
 
 
   get "/pages/:page" => "pages#show"

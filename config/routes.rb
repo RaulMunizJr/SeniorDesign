@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
   get "/pages/:page" => "pages#show"
+  get "/pages/about" => "pages#show"
 
 
   get "/pages" => "pages#show" #fix later? helped 404

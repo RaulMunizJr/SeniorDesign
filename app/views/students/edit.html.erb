@@ -1,0 +1,32 @@
+<div class="ui three column centered grid">
+   
+    <div class="ui form">
+    <div class="field">
+    <div class="ui top attached label">Edit Student Information</div>
+    <br><br>
+    <%= form_with model: @student  do |form| %>
+    
+    <%= form.text_field :first_name, placeholder:"First name: "+ @student.first_name %>
+    </div>
+    <div class="field">
+    <%= form.text_field :last_name, placeholder:"Last name: " + @student.last_name %>
+    </div>
+
+    <div class="field">
+    <%= form.text_field :classification, placeholder:"Classification: " + @student.classification.to_s %>
+    </div>
+
+    <div class="field">
+    <%= form.text_field :major, placeholder:"Major: " + @student.major%>
+    </div>
+
+    <div class="field">
+    <%= form.text_field :email, placeholder:"Email: " + @student.email%>
+    </div>
+    
+    <%= form.submit "Save", class:"ui inverted orange button" %>
+    <% end %>
+  </div>
+  </div>
+  </div>
+</div>

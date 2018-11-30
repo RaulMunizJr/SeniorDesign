@@ -1,0 +1,43 @@
+
+
+<br><br>
+<h1 style="margin-left:43%">STUDENTS</h1>
+<br />
+<table class="ui selectable celled table">
+  <thead>
+    <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Classification</th>
+    <th>Major</th>
+    <th>Email</th>
+    <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <% @students.each_with_index do |student, index| %> 
+    <tr id="student-<%= student.id %>">
+      <td><%=index+1%></td>
+      <td><%=link_to student.first_name + " " +student.last_name, student_path(student)%></td>
+      <td><%=student.classification%></td>
+      <td><%=student.major%></td>
+      <td><%=student.email%></td>
+
+      <td> 
+      <%= link_to 'Remove', student_path(student), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+      </td>
+
+    </tr>
+    <% end%>
+
+    <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="6">
+          <%=link_to "Add Student", new_student_path(@student), :class=> "ui inverted orange button", data: { turbolinks: false }%>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+  </tbody>

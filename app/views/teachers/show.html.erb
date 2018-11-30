@@ -1,0 +1,40 @@
+<script>
+$('.message').fadeOut(0);
+setTimeout("$( '#message' ).fadeOut(4000)",100)
+</script>
+
+<div class="ui three column centered grid">
+  <form class="ui form">
+    <div class="field">
+    <div class="ui top attached label">Teacher Information</div>
+    
+    <% if flash[:notice] %>
+    <div id="message"><%= notice%></div>
+    <%end%>
+
+    <br><br>
+    <%= form_for @teacher do |form| %>
+    <%= form.text_field :first_name, value:"First name: "+ @teacher.first_name %>
+    </div>
+    <div class="field">
+    <%= form.text_field :last_name, value:"Last name: " + @teacher.last_name %>
+    </div>
+
+    <div class="field">
+    <%= form.text_field :room, value:"Room #: " + @teacher.room.to_s %>
+    </div>
+
+    <div class="field">
+    <%= form.text_field :department, value:"Department: " + @teacher.department.to_s%>
+    </div>
+
+    <div class="field">
+    <%= form.text_field :email, value:"Email: " + @teacher.email%>
+    </div>
+
+    <%=link_to "Edit", edit_teacher_path(@teacher), :class=> "ui inverted orange button", data: { turbolinks: false }%>
+    <%= link_to  "Teachers", teachers_path(@teachers),  class:"ui inverted orange button" %>
+    <%end%>
+  </div>
+  </div>
+</div>

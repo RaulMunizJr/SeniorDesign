@@ -1,0 +1,49 @@
+<script>
+setTimeout("$('#alert').fadeOut(4000)",100);
+</script>
+
+<h1 style="margin-left:50%">TEACHERS</h1>
+<br />
+
+<table class="ui selectable celled table">
+  <thead>
+    <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Room #</th>
+    <th>Department</th>
+    <th>Email</th>
+    <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <% @teachers.each_with_index do |teacher, index| %> 
+    <tr id="teacher-<%= teacher.id %>">
+      <td class= "column"><%=index+1%></td>
+      <td><%=link_to teacher.first_name + " " +teacher.last_name, teacher_path(teacher)%></td>
+      <td class="one wide column"><%=teacher.room%></td>
+      <td class="one wide column"><%=teacher.department%></td>
+      <td class="one wide column"><%=teacher.email%></td>
+      <td> 
+      <%= link_to 'Remove', teacher_path(teacher), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+      </td>
+
+    </tr>
+    <% end%>
+
+    <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="8">
+          <%=link_to "Add teacher", new_teacher_path(@teacher), :class=> "ui inverted orange button", data: { turbolinks: false }%>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+  </tbody>
+
+
+
+
+  

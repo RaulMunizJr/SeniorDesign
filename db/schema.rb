@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206074035) do
+ActiveRecord::Schema.define(version: 20181130050938) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.integer "hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.boolean "availability"

@@ -19513,3 +19513,760 @@ Processing by CoursesController#index as HTML
 Completed 200 OK in 56ms (Views: 43.3ms | ActiveRecord: 0.9ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-11-30 00:06:52 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 34ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2018-11-30 00:06:52 -0600
+Processing by DashboardController#index as HTML
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered dashboard/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 469ms (Views: 462.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:06:56 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 200 OK in 49ms (Views: 41.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:06:57 -0600
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (10.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 107ms (Views: 93.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-11-30 00:07:01 -0600
+Processing by CoursesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8WTPrH9Z43KJDrcfFnxhDCsFPFSJxxurUv50oDn1cZ+rhB27PoT/b+Lg8xZqJbz9z42JavpGP7tNYDDtQnBqoQ==", "course"=>{"name"=>"Senior Design", "hours"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "courses" ("name", "hours", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Senior Design"], ["hours", 5], ["created_at", "2018-11-30 06:07:02.003809"], ["updated_at", "2018-11-30 06:07:02.003809"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/1
+Completed 200 OK in 10ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2018-11-30 00:07:02 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 58ms (Views: 44.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:07:04 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 200 OK in 58ms (Views: 51.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/courses/1" for 127.0.0.1 at 2018-11-30 00:07:07 -0600
+Processing by CoursesController#destroy as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering courses/destroy.js.erb
+  Rendered courses/destroy.js.erb (1.1ms)
+Completed 200 OK in 89ms (Views: 45.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:07:08 -0600
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (3.5ms)
+Completed 200 OK in 79ms (Views: 74.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-11-30 00:07:11 -0600
+Processing by CoursesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m75VFlJ50UOReJKCCCpoI8T5/681OKgpM0GBp25RqjrBXocBE6TNXvqW1ot0c7XSIHFKkUa5jDks38XqFdSxBA==", "course"=>{"name"=>"Senior Design", "hours"=>"TR 4:30 - 5:45"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "hours", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Senior Design"], ["hours", 0], ["created_at", "2018-11-30 06:07:11.364109"], ["updated_at", "2018-11-30 06:07:11.364109"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/2
+Completed 200 OK in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2018-11-30 00:07:11 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 60ms (Views: 52.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:07:13 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (3.8ms)
+Completed 200 OK in 66ms (Views: 59.0ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/courses/2" for 127.0.0.1 at 2018-11-30 00:07:26 -0600
+Processing by CoursesController#destroy as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering courses/destroy.js.erb
+  Rendered courses/destroy.js.erb (0.6ms)
+Completed 200 OK in 84ms (Views: 46.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:07:38 -0600
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 200 OK in 55ms (Views: 50.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-11-30 00:07:43 -0600
+Processing by CoursesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hbq84doSjnmmiccHl1BY8xwdQEH5pygIfMwYBJtj/RzfWm72m8+SZM1ngw7rCYUC+JX1f4omDBhjUlxJ4ObmIg==", "course"=>{"name"=>"Senior Design", "hours"=>"T"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "hours", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Senior Design"], ["hours", 0], ["created_at", "2018-11-30 06:07:43.900167"], ["updated_at", "2018-11-30 06:07:43.900167"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/3
+Completed 200 OK in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/courses/3" for 127.0.0.1 at 2018-11-30 00:07:43 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.3ms)
+Completed 200 OK in 52ms (Views: 46.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:07:44 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (3.3ms)
+Completed 200 OK in 50ms (Views: 46.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/courses/3" for 127.0.0.1 at 2018-11-30 00:07:47 -0600
+Processing by CoursesController#destroy as JS
+  Parameters: {"id"=>"3"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 3]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  Rendering courses/destroy.js.erb
+  Rendered courses/destroy.js.erb (0.6ms)
+Completed 200 OK in 78ms (Views: 43.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:10:10 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 200 OK in 50ms (Views: 46.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-11-30 00:10:23 -0600
+Processing by CoursesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oCBiKAHkJ4ploC0DdzNpHV7cMA9lMa1cSe48o+J5sg/6wLA/QDk7lw5OaQoLarTsulSFMRawiUxWcHjumfypMQ==", "course"=>{"name"=>"Senior Design", "hours"=>"TR 4:30 - 5:45"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "hours", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Senior Design"], ["hours", 0], ["created_at", "2018-11-30 06:10:23.705962"], ["updated_at", "2018-11-30 06:10:23.705962"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/4
+Completed 200 OK in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/courses/4" for 127.0.0.1 at 2018-11-30 00:10:23 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 45ms (Views: 39.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:10:27 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 54ms (Views: 46.9ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/courses/4" for 127.0.0.1 at 2018-11-30 00:10:30 -0600
+Processing by CoursesController#destroy as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering courses/destroy.js.erb
+  Rendered courses/destroy.js.erb (0.5ms)
+Completed 200 OK in 83ms (Views: 47.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:11:28 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (25.9ms)
+Completed 200 OK in 80ms (Views: 73.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:11:36 -0600
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (3.2ms)
+Completed 200 OK in 61ms (Views: 49.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:11:54 -0600
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.8ms)
+Completed 200 OK in 45ms (Views: 41.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-11-30 00:11:57 -0600
+Processing by CoursesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6yBFCgbdFJQKazdbS1/XiWKM5vTd3Eq5efGW551YlCKxwJcdRwAIiWGFc1I3Bgp4hgRTyq5dbqlmb9Kq5t2PHA==", "course"=>{"name"=>"Senior Design", "hours"=>"TR 4:30 - 5:45"}}
+Unpermitted parameter: :hours
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Senior Design"], ["created_at", "2018-11-30 06:11:57.905845"], ["updated_at", "2018-11-30 06:11:57.905845"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/5
+Completed 200 OK in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/courses/5" for 127.0.0.1 at 2018-11-30 00:11:57 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.8ms)
+Completed 200 OK in 48ms (Views: 43.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:12:41 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `time' for #<Course:0x007fd7184f2c38>):
+    14:     <tr id="course-<%= course.id %>"> 
+    15:       <td><%=index+1%></td>
+    16:       <td><%=link_to course.name, course_path(course)%></td>
+    17:       <td><%=course.time.to_s%></td>
+    18:       <td> <%= link_to 'Remove', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+    19:       </td>
+    20:     </tr>
+  
+app/views/courses/index.html.erb:17:in `block in _app_views_courses_index_html_erb___3079556178234375246_70280901332300'
+app/views/courses/index.html.erb:13:in `each_with_index'
+app/views/courses/index.html.erb:13:in `_app_views_courses_index_html_erb___3079556178234375246_70280901332300'
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:13:10 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (11.7ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `time' for #<Course:0x007fd71d831408>):
+    14:     <tr id="course-<%= course.id %>"> 
+    15:       <td><%=index+1%></td>
+    16:       <td><%=link_to course.name, course_path(course)%></td>
+    17:       <td><%=course.time.to_s%></td>
+    18:       <td> <%= link_to 'Remove', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+    19:       </td>
+    20:     </tr>
+  
+app/views/courses/index.html.erb:17:in `block in _app_views_courses_index_html_erb___3079556178234375246_70280939721840'
+app/views/courses/index.html.erb:13:in `each_with_index'
+app/views/courses/index.html.erb:13:in `_app_views_courses_index_html_erb___3079556178234375246_70280939721840'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-11-30 00:13:43 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 36ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2018-11-30 00:13:43 -0600
+Processing by DashboardController#index as HTML
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered dashboard/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 399ms (Views: 395.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:13:45 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (19.8ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `time' for #<Course:0x007ffa116541c8>):
+    14:     <tr id="course-<%= course.id %>"> 
+    15:       <td><%=index+1%></td>
+    16:       <td><%=link_to course.name, course_path(course)%></td>
+    17:       <td><%=course.time.to_s%></td>
+    18:       <td> <%= link_to 'Remove', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+    19:       </td>
+    20:     </tr>
+  
+app/views/courses/index.html.erb:17:in `block in _app_views_courses_index_html_erb__2582978264301508302_70356005073500'
+app/views/courses/index.html.erb:13:in `each_with_index'
+app/views/courses/index.html.erb:13:in `_app_views_courses_index_html_erb__2582978264301508302_70356005073500'
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:14:32 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (20.6ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `time' for #<Course:0x007ffa13132e18>):
+    14:     <tr id="course-<%= course.id %>"> 
+    15:       <td><%=index+1%></td>
+    16:       <td><%=link_to course.name, course_path(course)%></td>
+    17:       <td><%=course.time.to_s%></td>
+    18:       <td> <%= link_to 'Remove', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+    19:       </td>
+    20:     </tr>
+  
+app/views/courses/index.html.erb:17:in `block in _app_views_courses_index_html_erb__2582978264301508302_70356004833200'
+app/views/courses/index.html.erb:13:in `each_with_index'
+app/views/courses/index.html.erb:13:in `_app_views_courses_index_html_erb__2582978264301508302_70356004833200'
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:17:18 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (17.4ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `time' for #<Course:0x007ffa1315ac60>):
+    14:     <tr id="course-<%= course.id %>"> 
+    15:       <td><%=index+1%></td>
+    16:       <td><%=link_to course.name, course_path(course)%></td>
+    17:       <td><%=course.time.to_s%></td>
+    18:       <td> <%= link_to 'Remove', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+    19:       </td>
+    20:     </tr>
+  
+app/views/courses/index.html.erb:17:in `block in _app_views_courses_index_html_erb__2582978264301508302_70356005272660'
+app/views/courses/index.html.erb:13:in `each_with_index'
+app/views/courses/index.html.erb:13:in `_app_views_courses_index_html_erb__2582978264301508302_70356005272660'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:24:58 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (20.8ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `time' for #<Course:0x007fed679e99e8>):
+    14:     <tr id="course-<%= course.id %>"> 
+    15:       <td><%=index+1%></td>
+    16:       <td><%=link_to course.name, course_path(course)%></td>
+    17:       <td><%=course.time.to_s%></td>
+    18:       <td> <%= link_to 'Remove', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+    19:       </td>
+    20:     </tr>
+  
+app/views/courses/index.html.erb:17:in `block in _app_views_courses_index_html_erb__3856586789863229585_70328811668280'
+app/views/courses/index.html.erb:13:in `each_with_index'
+app/views/courses/index.html.erb:13:in `_app_views_courses_index_html_erb__3856586789863229585_70328811668280'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCourses (20181130050938)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "courses"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181130050938"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCourses (20181130062657)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "time" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181130062657"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-11-30 00:27:59 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (328.1ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 419ms (Views: 405.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-11-30 00:28:02 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.2ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 119ms (Views: 94.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-11-30 00:28:10 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aKHvwL/kOzoYwensEU1n81VrxAqR3QD29RYXDa8UC/5aER69DNEG8ymJfay2j1VMqryqpYlaiIohq5oqhphzqQ==", "user"=>{"email"=>"rmuniz@email.net", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "rmuniz@email.net"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-11-30 06:28:10.522445"], ["last_sign_in_at", "2018-11-30 05:19:00.099739"], ["sign_in_count", 19], ["updated_at", "2018-11-30 06:28:10.523572"], ["id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 193ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-30 00:28:10 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2018-11-30 00:28:10 -0600
+Processing by DashboardController#index as HTML
+  Rendering dashboard/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered dashboard/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 47ms (Views: 41.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:28:15 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.4ms)
+Completed 200 OK in 50ms (Views: 43.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:28:16 -0600
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.6ms)
+Completed 200 OK in 63ms (Views: 48.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-11-30 00:28:27 -0600
+Processing by CoursesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"19nk8t+5gQdLxaiBQ6+2/ue2kQzD2cHWoE1l1NPoE+CxJ+cN0tY0fdMf6+ugKTg3wOB28mDe2SIlxqT4zBWeoA==", "course"=>{"name"=>"Senior Design", "time"=>"TR"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("name", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Senior Design"], ["time", "TR"], ["created_at", "2018-11-30 06:28:27.257180"], ["updated_at", "2018-11-30 06:28:27.257180"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/1
+Completed 200 OK in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2018-11-30 00:28:27 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `hours' for #<Course:0x007ff5aa643e88>):
+    19:     <%= form.text_field :name, value:"Name: "+ @course.name %>
+    20:     </div>
+    21:     <div class="field">
+    22:     <%= form.text_field :time, value:"Hours: " + @course.hours.to_s %>
+    23:     </div>
+    24:     <%=link_to "Edit", edit_course_path(@course), :class=> "ui inverted orange button", data: { turbolinks: false }%>
+    25:     <%= link_to  "Courses", courses_path(@courses),  class:"ui inverted orange button" %>
+  
+app/views/courses/show.html.erb:22:in `block in _app_views_courses_show_html_erb___1046146397192651489_70346551203280'
+app/views/courses/show.html.erb:18:in `_app_views_courses_show_html_erb___1046146397192651489_70346551203280'
+Started GET "/courses/1" for 127.0.0.1 at 2018-11-30 00:28:51 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (3.0ms)
+Completed 200 OK in 49ms (Views: 43.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:28:53 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (3.1ms)
+Completed 200 OK in 52ms (Views: 47.7ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/courses/1" for 127.0.0.1 at 2018-11-30 00:28:58 -0600
+Processing by CoursesController#destroy as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering courses/destroy.js.erb
+  Rendered courses/destroy.js.erb (0.6ms)
+Completed 200 OK in 80ms (Views: 41.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2018-11-30 00:28:59 -0600
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/new.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.7ms)
+Completed 200 OK in 66ms (Views: 59.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/courses" for 127.0.0.1 at 2018-11-30 00:29:19 -0600
+Processing by CoursesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QYi9rK01t59kWJ3eEjooZeG0NGDAtI6CgyPA3wm+a1Qndr5ToFoC5fyC3rTxvKasxuLTnmOzlnYGqAHzFkPmFA==", "course"=>{"name"=>"Senior Design", "time"=>"TR 4:30 - 5:45"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "courses" ("name", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Senior Design"], ["time", "TR 4:30 - 5:45"], ["created_at", "2018-11-30 06:29:19.130801"], ["updated_at", "2018-11-30 06:29:19.130801"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/2
+Completed 200 OK in 5ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2018-11-30 00:29:19 -0600
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 48ms (Views: 40.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2018-11-30 00:29:21 -0600
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 51ms (Views: 46.3ms | ActiveRecord: 0.4ms)
+
+

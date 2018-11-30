@@ -5,7 +5,7 @@
     <tr>
     <th>#</th>
     <th>Name</th>
-    <th>Hours</th>
+    <th>Time</th>
     <th>Delete</th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
     <tr id="course-<%= course.id %>"> 
       <td><%=index+1%></td>
       <td><%=link_to course.name, course_path(course)%></td>
-      <td><%=course.hours.to_s%></td>
+      <td><%=course.time.to_s%></td>
       <td> <%= link_to 'Remove', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>

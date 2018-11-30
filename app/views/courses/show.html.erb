@@ -19,7 +19,7 @@ setTimeout("$( '#message' ).fadeOut(4000)",100)
     <%= form.text_field :name, value:"Name: "+ @course.name %>
     </div>
     <div class="field">
-    <%= form.text_field :hours, value:"Hours: " + @course.hours.to_s %>
+    <%= form.text_field :time, value:"Hours: " + @course.time.to_s %>
     </div>
     <%=link_to "Edit", edit_course_path(@course), :class=> "ui inverted orange button", data: { turbolinks: false }%>
     <%= link_to  "Courses", courses_path(@courses),  class:"ui inverted orange button" %>
